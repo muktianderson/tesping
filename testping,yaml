@@ -1,0 +1,17 @@
+---
+- name: Ping Hosts on Juniper Devices
+  hosts: juniper
+  gather_facts: no
+  tasks:
+
+    - name: Ensure Connectivity to Juniper Devices
+      ping:
+
+    - name: Check Connectivity Using Junos Ping
+      junos_ping:
+        dest: 172.16.249.254
+      register: result
+
+    - name: Display Ping Results
+      debug:
+        var: result
